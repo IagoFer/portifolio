@@ -25,9 +25,16 @@
   }
 
   @keyframes float {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(30px, 20px); }
-}
+
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+
+    50% {
+      transform: translate(30px, 20px);
+    }
+  }
 
   .dark {
     --background: #030213;
@@ -54,9 +61,10 @@
     border-color: var(--border);
   }
 
-  html, body {
-  overflow-x: hidden;
-}
+  html,
+  body {
+    overflow-x: hidden;
+  }
 
   body {
     background-color: var(--background);

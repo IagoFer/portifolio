@@ -57,34 +57,22 @@
         </div>
       </div>
 
-      <!-- Skills grid -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div
-          v-for="(skill, index) in skills"
-          :key="skill.title"
-          :data-aos="'fade-up'"
-          :data-aos-delay="index * 100"
-          class="p-6 rounded-xl backdrop-blur-sm transition-all cursor-pointer hover:scale-105"
-          :class="
-            isDark
-              ? 'bg-white/5 border border-white/10 hover:bg-white/10'
-              : 'bg-gray-50 border border-gray-200 hover:bg-gray-100'
-          "
-        >
-          <component
-            :is="skill.icon"
-            class="w-12 h-12 mb-4"
-            :class="isDark ? 'text-purple-400' : 'text-purple-600'"
-          />
-          <h4
-            class="text-xl font-semibold mb-2"
-            :class="isDark ? 'text-white' : 'text-gray-900'"
-          >
-            {{ skill.title }}
-          </h4>
-          <p :class="isDark ? 'text-gray-400' : 'text-gray-600'">
-            {{ skill.desc }}
-          </p>
+      <!-- Marquee de tecnologias -->
+      <div class="py-8 overflow-hidden" data-aos="fade-up" data-aos-delay="600">
+        <div class="relative flex overflow-x-hidden">
+          <div class="animate-marquee whitespace-nowrap flex gap-8">
+            <div
+              v-for="(tech, index) in [...techStack, ...techStack]"
+              :key="index"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full"
+              :class="isDark ? 'bg-white/5 border border-white/10' : 'bg-gray-100 border border-gray-200'"
+            >
+              <component :is="tech.icon" class="w-5 h-5" :class="isDark ? 'text-purple-400' : 'text-purple-600'" />
+              <span class="text-sm font-medium" :class="isDark ? 'text-gray-300' : 'text-gray-700'">
+                {{ tech.name }}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -92,17 +80,56 @@
 </template>
 
 <script setup>
-import { Code2, Palette, Zap, Users } from 'lucide-vue-next'
 import ImageWithFallback from './ImageWithFallback.vue'
+import { Coffee } from 'lucide-vue-next' // Ícone para Java
+import {
+  SpringIcon,
+  VueDotjsIcon,
+  ReactIcon,
+  NodeDotjsIcon,
+  PhpIcon,
+  LaravelIcon,
+  DockerIcon,
+  PostgreSqlIcon,
+  GitIcon,
+  TypeScriptIcon,
+  JavaScriptIcon,
+  Html5Icon,
+  CssIcon,
+  TailwindCssIcon,
+  ScrumAllianceIcon
+} from 'vue3-simple-icons'
 
 defineProps({
   isDark: Boolean
 })
 
-const skills = [
-  { icon: Code2, title: 'Back-end', desc: 'Java • Spring • Node.js • PHP' },
-  { icon: Palette, title: 'Front-end', desc: 'Vue • React • HTML5 • CSS3' },
-  { icon: Zap, title: 'DevOps', desc: 'Docker • Git • CI/CD' },
-  { icon: Users, title: 'Metodologias', desc: 'Scrum • Kanban • Liderança' }
+const techStack = [
+  { name: 'Java', icon: Coffee }, // Usa Coffee do Lucide
+  { name: 'Spring', icon: SpringIcon },
+  { name: 'Vue.js', icon: VueDotjsIcon },
+  { name: 'React', icon: ReactIcon },
+  { name: 'Node.js', icon: NodeDotjsIcon },
+  { name: 'PHP', icon: PhpIcon },
+  { name: 'Laravel', icon: LaravelIcon },
+  { name: 'Docker', icon: DockerIcon },
+  { name: 'PostgreSQL', icon: PostgreSqlIcon },
+  { name: 'Git', icon: GitIcon },
+  { name: 'TypeScript', icon: TypeScriptIcon },
+  { name: 'JavaScript', icon: JavaScriptIcon },
+  { name: 'HTML5', icon: Html5Icon },
+  { name: 'CSS3', icon: CssIcon },
+  { name: 'Tailwind', icon: TailwindCssIcon },
+  { name: 'Scrum', icon: ScrumAllianceIcon },
 ]
 </script>
+
+<style scoped>
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+</style>

@@ -10,16 +10,14 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex flex-col items-center">
         <!-- Links sociais -->
-        <div
-          class="flex gap-6 mb-8"
-        >
+        <div class="flex gap-6 mb-8">
           <a
             v-for="(social, index) in socialLinks"
             :key="index"
             :href="social.url"
             target="_blank"
             rel="noopener noreferrer"
-            class="p-3 rounded-full transition-colors"
+            class="p-3 rounded-full transition-all duration-300 hover:scale-110 hover:bg-opacity-20"
             :class="isDark ? 'bg-white/5 hover:bg-white/10' : 'bg-gray-900/5 hover:bg-gray-900/10'"
           >
             <component :is="social.icon" class="w-6 h-6" />
@@ -27,13 +25,9 @@
         </div>
 
         <!-- Copyright -->
-        <div
-          class="text-center"
-        >
+        <div class="text-center">
           <p class="flex items-center gap-2" :class="isDark ? 'text-gray-400' : 'text-gray-600'">
-            © {{ currentYear }} Feito com
-            <Heart class="w-4 h-4 text-red-500 animate-pulse" />
-            por Iago Fernandes Bastos
+            © {{ currentYear }} Feito por Iago Fernandes Bastos
           </p>
         </div>
       </div>
@@ -42,7 +36,8 @@
 </template>
 
 <script setup>
-import { Github, Linkedin, Mail, Heart } from 'lucide-vue-next'
+import { Github, Linkedin, Mail } from 'lucide-vue-next'
+import { WhatsAppIcon } from 'vue3-simple-icons'
 
 defineProps({
   isDark: Boolean
@@ -51,8 +46,9 @@ defineProps({
 const currentYear = new Date().getFullYear()
 
 const socialLinks = [
-  { icon: Github, url: 'https://github.com/iagofernandes' },
+  { icon: Github, url: 'https://github.com/IagoFer' },
   { icon: Linkedin, url: 'https://linkedin.com/in/iago-fernandes-bastos' },
-  { icon: Mail, url: 'mailto:iagofernandesbastos@gmail.com' }
+  { icon: Mail, url: 'mailto:iagofernandesbastos@gmail.com' },
+  { icon: WhatsAppIcon, url: 'https://wa.me/5585997900737' }
 ]
 </script>

@@ -1,10 +1,8 @@
 <template>
-  <div
-    :class="[
-      'min-h-screen transition-colors duration-500',
-      isDark ? 'bg-black text-white' : 'bg-white text-gray-900'
-    ]"
-  >
+  <div :class="[
+    'min-h-screen transition-colors duration-500',
+    isDark ? 'bg-black text-white' : 'bg-white text-gray-900'
+  ]">
     <ThemeToggle :isDark="isDark" :toggleTheme="toggleTheme" />
 
     <main class="relative">
