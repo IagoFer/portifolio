@@ -14,7 +14,7 @@
         <div data-aos="fade-right" data-aos-delay="200" class="relative">
           <div class="relative overflow-hidden rounded-2xl shadow-2xl">
             <ImageWithFallback
-              src="https://images.unsplash.com/photo-1546514714-df0ccc50d7bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBvZmZpY2UlMjB3b3Jrc3BhY2UlMjBkZXZlbG9wZXJ8ZW58MXx8fHwxNzcxODYyNjQ3fDA&ixlib=rb-4.1.0&q=80&w=1080"
+              src="/src/assets/Trabson.png"
               alt="Workspace" class="w-full h-[440px] lg:h-[480px] object-cover" />
             <div class="absolute inset-0 bg-gradient-to-t from-purple-900/60 to-transparent" />
           </div>
