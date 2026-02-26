@@ -1,7 +1,7 @@
 <template>
     <section class="relative py-24 overflow-hidden" :class="isDark
-            ? 'bg-gradient-to-b from-black via-purple-950/10 to-black'
-            : 'bg-gradient-to-b from-white via-purple-50 to-white'
+        ? 'bg-gradient-to-b from-black via-purple-950/10 to-black'
+        : 'bg-gradient-to-b from-white via-purple-50 to-white'
         ">
         <div class="max-w-7xl mx-auto px-6">
             <!-- Título -->
@@ -30,8 +30,8 @@
                         <!-- Ponto da timeline -->
                         <div class="absolute left-6 lg:left-auto w-4 h-4 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 z-10"
                             :class="index % 2 === 0
-                                    ? 'lg:-left-2'
-                                    : 'lg:-right-2'
+                                ? 'lg:-left-1'
+                                : 'lg:-right-1'
                                 " :data-aos="'zoom-in'" :data-aos-delay="index * 200 + 300" />
 
                         <!-- Card -->
@@ -73,8 +73,8 @@
                             <div class="flex flex-wrap gap-2">
                                 <span v-for="tech in exp.technologies" :key="tech"
                                     class="px-3 py-1 rounded-full text-sm" :class="isDark
-                                            ? 'bg-purple-500/20 text-purple-300'
-                                            : 'bg-purple-100 text-purple-700'
+                                        ? 'bg-purple-500/20 text-purple-300'
+                                        : 'bg-purple-100 text-purple-700'
                                         ">
                                     {{ tech }}
                                 </span>
@@ -95,37 +95,75 @@ defineProps({
 })
 
 const experiences = [
+
     {
         company: 'Guardin System',
-        role: 'Desenvolvedor Full Stack (Tech Lead front-end)',
-        period: '10/2024 - 08/2025',
+        role: 'Tech Lead Frontend • Full Stack Developer',
+        period: '10/2024 — 11/2025',
         description:
-            'Atuação como Tech Lead no desenvolvimento de um sistema completo de rastreamento veicular, incluindo CRM, captação de leads, cotação, planos, comissões, chat, pipelines, dashboards e monitoramento de veículos. Atendimento a clientes em todo o Brasil (empresas privadas e públicas).',
-        technologies: ['Java', 'PHP Laravel', 'Vue.js', 'Docker', 'PostgreSQL', 'Tailwind', 'Scrum']
+            'Liderei o desenvolvimento frontend de uma plataforma nacional de rastreamento veicular, estruturando arquitetura de interfaces, padronização de componentes e fluxos críticos do produto. Atuei na evolução do CRM operacional, módulos comerciais e monitoramento em tempo real, suportando operações de clientes privados e públicos em todo o Brasil.',
+        technologies: [
+            'Vue.js',
+            'Laravel',
+            'Docker',
+            'PostgreSQL',
+            'Tailwind',
+            'Scrum'
+        ]
     },
+
     {
-        company: 'Fabrica Info',
-        role: 'Desenvolvedor Full Stack Jr',
-        period: '09/2022 - 01/2024',
+        company: 'Fábrica Info',
+        role: 'Full Stack Developer',
+        period: '09/2022 — 01/2024',
         description:
-            'Análise e desenvolvimento de sistemas para digitalização de documentos e processos. Desenvolvimento do sistema PROLEGIS para a Assembleia Legislativa do Ceará (ALECE) e do sistema NovoCFC para autoescolas de Fortaleza.',
-        technologies: ['React.js', 'Node.js', 'PHP Laravel', 'Vue.js', 'Docker', 'PostgreSQL', 'Bitbucket', 'Scrum']
+            'Atuei no desenvolvimento de sistemas corporativos e governamentais, participando da construção do PROLEGIS (ALECE) e do NovoCFC. Contribuí na modelagem de funcionalidades, integração entre serviços e evolução contínua de aplicações utilizadas em ambientes institucionais e operacionais.',
+        technologies: [
+            'React',
+            'Node.js',
+            'Vue.js',
+            'Laravel',
+            'Docker',
+            'PostgreSQL',
+            'Scrum'
+        ]
     },
+
     {
         company: 'DATAPREV',
-        role: 'Desenvolvedor Web (Estágio)',
-        period: '07/2021 - 09/2022',
+        role: 'Desenvolvedor Web',
+        period: '07/2021 — 09/2022',
         description:
-            'Desenvolvimento de aplicações web com foco em backend Java e Spring Boot. Criação de novas funcionalidades, correção de bugs em sistemas legados e desenvolvimento de APIs REST.',
-        technologies: ['Java', 'Spring Boot', 'JPA', 'SQL Server', 'PostgreSQL', 'React', 'Postman']
+            'Desenvolvi e mantive aplicações backend utilizando Java e Spring Boot em sistemas de alta criticidade. Atuei na criação de APIs REST, manutenção de sistemas legados e melhoria da confiabilidade de serviços utilizados em operações previdenciárias nacionais.',
+        technologies: [
+            'Java',
+            'Spring Boot',
+            'JPA',
+            'PostgreSQL',
+            'SQL Server',
+            'React'
+        ]
     },
+
     {
-        company: 'SEPOG',
-        role: 'Desenvolvedor Web (Estágio)',
-        period: '09/2019 - 06/2021',
+        company: 'SEPOG — Governo do Estado do Ceará',
+        role: 'Desenvolvedor Web',
+        period: '09/2019 — 06/2021',
         description:
-            'Desenvolvimento do sistema Bens e Imóveis, aplicação de layout e relatórios. Manutenção nos sistemas Aposentadoria e Patrimônio. Desenvolvimento full stack com Java, Spring Boot, JSF, PrimeFaces.',
-        technologies: ['Java', 'Spring Boot', 'JSF', 'PrimeFaces', 'PostgreSQL', 'Git', 'Jira']
+            'Participei do desenvolvimento do sistema Bens e Imóveis, responsável pela gestão patrimonial governamental. Atuei também na manutenção dos sistemas de Aposentadoria e Patrimônio, implementando funcionalidades, relatórios e melhorias estruturais em aplicações institucionais.',
+        technologies: [
+            'Java',
+            'Spring Boot',
+            'JSF',
+            'PrimeFaces',
+            'React.js',
+            'HTML5',
+            'Maven',
+            'PostgreSQL',
+            'Git',
+            'Jira'
+        ]
     }
+
 ]
 </script>
