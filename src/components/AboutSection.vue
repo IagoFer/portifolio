@@ -14,7 +14,7 @@
         <div data-aos="fade-right" data-aos-delay="200" class="relative">
           <div class="relative overflow-hidden rounded-2xl shadow-2xl">
             <ImageWithFallback
-              src="/src/assets/Trabson.png"
+              :src="Trabson"
               alt="Workspace" class="w-full h-[440px] lg:h-[480px] object-cover" />
             <div class="absolute inset-0 bg-gradient-to-t from-purple-900/60 to-transparent" />
           </div>
@@ -67,7 +67,8 @@
 
 <script setup>
 import ImageWithFallback from './ImageWithFallback.vue'
-import { Coffee } from 'lucide-vue-next' // Ícone para Java
+import { Coffee } from 'lucide-vue-next'
+import Trabson from '../assets/Trabson.png'
 import {
   SpringIcon,
   VueDotjsIcon,
