@@ -8,7 +8,7 @@ import { ref, watch } from 'vue'
 const props = defineProps({
     src: { type: String, required: true },
     alt: { type: String, default: '' },
-    fallbackSrc: { type: String, default: "/src/assets/iago.png" }
+    fallbackSrc: { type: String, default: "/src/assets/Trabson.png" }
 })
 
 const srcWithFallback = ref(props.src)
