@@ -33,8 +33,8 @@
           </p>
 
           <p class="text-lg mb-4" :class="isDark ? 'text-gray-300' : 'text-gray-700'">
-            Minha trajetória começou no backend, desenvolvendo APIs, regras financeiras e sistemas complexos com
-            Laravel, Node.js e PostgreSQL. Essa base me permite enxergar o produto de ponta a ponta da arquitetura e
+            Minha trajetória começou no backend, desenvolvendo APIs com Java, 
+            Laravel e Node.js. Essa base me permite enxergar o produto de ponta a ponta da arquitetura e
             regras de negócio até a experiência final do usuário.
           </p>
 
