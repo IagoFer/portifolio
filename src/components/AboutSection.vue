@@ -16,7 +16,7 @@
             <ImageWithFallback
               :src="Trabson"
               alt="Workspace" class="w-full h-[440px] lg:h-[480px] object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-t from-purple-900/60 to-transparent" />
+            <div class="absolute inset-0" />
           </div>
         </div>
 
