@@ -1,8 +1,7 @@
 <template>
   <!-- Contêiner fixo principal -->
-  <div
-    class="fixed bottom-4 right-4 md:bottom-10 md:right-10 z-[100] w-36 md:w-64 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none"
-    :class="{
+  <div class="fixed z-[100] transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none"
+    :style="mascotStyle" :class="{
       'mascot-hero': isHero,
       'mascot-footer': !isHero && scrollMaxGlobal > 0 && currentScroll >= scrollMaxGlobal - 20,
       'mascot-scrolled': !isHero && !(scrollMaxGlobal > 0 && currentScroll >= scrollMaxGlobal - 20)
@@ -20,7 +19,7 @@
     <div
       class="w-full h-auto rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-2xl relative flex items-center justify-center">
       <video ref="videoRef" src="../assets/video-avatar-kf.mp4" muted playsinline
-        class="block w-full h-auto object-cover pointer-events-none"></video>
+        class="block w-full h-full object-contain pointer-events-none"></video>
     </div>
   </div>
 </template>
@@ -34,11 +33,55 @@ let reqFrame = null
 // Rastreamento local da rolagem para atrelar ao CSS e ao Scrub
 const currentScroll = ref(0)
 const scrollMaxGlobal = ref(0)
+const anchorRect = ref(null)
+
 const isHero = computed(() => currentScroll.value < 100)
 let hasStartedScrolling = false
 
+const updateAnchor = () => {
+  const isMobile = window.innerWidth < 768
+  const anchorId = isMobile ? 'mascot-anchor' : 'mascot-anchor-desktop'
+  const anchor = document.getElementById(anchorId)
+  
+  if (anchor) {
+    anchorRect.value = anchor.getBoundingClientRect()
+  } else {
+    anchorRect.value = null
+  }
+}
+
+const mascotStyle = computed(() => {
+  // HERO STATE: Segue a âncora (Mobile ou Desktop)
+  if (isHero.value && anchorRect.value) {
+    const isMobile = window.innerWidth < 768
+    return {
+      top: `${anchorRect.value.top}px`,
+      left: `${anchorRect.value.left}px`,
+      width: `${anchorRect.value.width}px`,
+      height: `${anchorRect.value.height}px`,
+      padding: isMobile ? '3rem' : '1rem', // Respiro menor no desktop para preencher melhor o grid
+      bottom: 'auto',
+      right: 'auto',
+    }
+  }
+
+  // DEFAULT (Scrolled ou Footer)
+  const isMobile = window.innerWidth < 768
+  return {
+    bottom: isMobile ? '1rem' : '2.5rem',
+    right: isMobile ? '1rem' : '2.5rem',
+    width: isMobile ? '9rem' : '16rem', // w-36(144px) vs w-64(256px)
+    height: 'auto',
+    top: 'auto',
+    left: 'auto',
+    padding: '0',
+  }
+})
+
 const updateVideoTime = () => {
   if (!videoRef.value) return
+
+  updateAnchor() // Atualiza a âncora a cada frame se necessário
 
   const docHeight = document.documentElement.scrollHeight
   const winHeight = window.innerHeight
@@ -119,18 +162,9 @@ onUnmounted(() => {
   }
 }
 
-/* Posição ancorada no centro/direita na Hero */
+/* Posição ancorada na Hero */
 .mascot-hero {
-  /* MOBILE: Joga exatamente pro centro do eixo X, desce um pouco mais e dobra de tamanho! */
-  transform: translateX(calc(-50vw + 1rem + 50%)) translateY(-4vh) scale(2.0);
-  transform-origin: bottom center;
-}
-
-@media (min-width: 768px) {
-  .mascot-hero {
-    /* Ajuste fino para a HeroSection em monitores médios/grandes. */
-    transform: translate(-10vw, -30vh) scale(2.2);
-    transform-origin: center right;
-  }
+  /* Controlado pelo :style dinâmico (Anchor Tracking) para Mobile e Desktop */
+  transform: none; 
 }
 </style>

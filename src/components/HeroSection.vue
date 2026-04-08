@@ -1,11 +1,11 @@
 <template>
-  <section class="relative min-h-[100dvh] flex flex-col justify-center items-center w-full">
+  <section class="relative min-h-[100dvh] flex flex-col w-full md:justify-center">
     <!-- Asymmetric Split Grid Layout -->
     <div
-      class="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
+      class="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center pt-24 md:pt-0">
 
-      <!-- Text Contato -->
-      <div class="flex flex-col items-start order-2 md:order-1 text-left w-full h-full justify-center pb-20 md:pb-0">
+      <!-- Text Content -->
+      <div class="flex flex-col items-start order-2 md:order-1 text-left w-full h-full justify-center">
 
         <div class="inline-flex overflow-hidden rounded-full border border-border bg-secondary/50 px-3 py-1 mb-6"
           data-aos="fade-up">
@@ -51,9 +51,15 @@
         </div>
       </div>
 
-      <!-- Removed Avatar Wrapper from here as it is now Global (VideoAvatar) -->
-
+      <!-- MASCOT ANCHOR (Desktop only) -->
+      <div id="mascot-anchor-desktop" class="hidden md:flex items-center justify-center h-full min-h-[400px] relative z-0 order-1 md:order-2">
+        <!-- O VideoAvatar global será posicionado sobre este div via JS -->
+      </div>
     </div>
+
+    <!-- MASCOT ANCHOR (Mobile only) -->
+    <!-- Este div cresce para ocupar todo o espaço vago entre o conteúdo e o final da seção -->
+    <div id="mascot-anchor" class="flex-grow md:hidden min-h-[30vh] w-full relative z-0 mt-12"></div>
   </section>
 </template>
 
